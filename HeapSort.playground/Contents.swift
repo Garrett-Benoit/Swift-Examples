@@ -8,19 +8,20 @@ class Heap {
         self.values = values
     }
     
-    func parent(childIndex: Int) -> Int {
+    private func parent(childIndex: Int) -> Int {
         return (childIndex - 1) / 2
     }
     
-    func leftChild(parentIndex: Int) -> Int {
+    private func leftChild(parentIndex: Int) -> Int {
         return parentIndex * 2 + 1
     }
     
-    func rightChild(parentIndex: Int) -> Int {
+    private func rightChild(parentIndex: Int) -> Int {
         return parentIndex * 2 + 2
     }
     
-    func bubbleDown(index: Int) {
+    private func bubbleDown(index: Int) {
+        
         var index = index
         
         while index < values.count {
@@ -44,9 +45,7 @@ class Heap {
                 values[largerChildIndex] = tempValue
                 print("Swapping index \(index) with index \(largerChildIndex)")
                 print("\(values)\n")
-                
                 bubbleDown(index: parent(childIndex: index))
-                
                 index = largerChildIndex
             } else {
                 break
